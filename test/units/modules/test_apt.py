@@ -86,7 +86,7 @@ def test_cleanup_with_cache_options(
         apt.main()
 
     assert exception.value.code == 0
-    stdout, _ = capfd.readouterr()
+    stdout = capfd.readouterr().out
     result = json.loads(stdout)
     if operation:
         run_command.assert_called_once()
